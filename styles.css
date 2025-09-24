@@ -6,13 +6,13 @@ body {
 }
 
 #map {
-    width: 75%;
+    width: 85%;
     height: 600px;
     border: 2px solid #ccc;
 }
 
 .legend {
-    width: 20%;
+    width: 10%;
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
@@ -21,3 +21,4 @@ body {
 h3 {
     margin-top: 0;
 }
+
