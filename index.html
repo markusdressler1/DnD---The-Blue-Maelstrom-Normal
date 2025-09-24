@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark and Darker Interactive Map</title>
+    <title>Interaktive Map - Dark and Darker</title>
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Leaflet CSS für die Karte -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-    <h1>Dark and Darker - Interaktive Map</h1>
-
-    <!-- Checkboxen für Icons -->
+    <h1>Interaktive Map - Dark and Darker</h1>
+    
     <div class="checkboxes">
-        <label><input type="checkbox" id="loot" checked> Loot</label><br>
-        <label><input type="checkbox" id="playerspawn" checked> Spieler Spawn</label><br>
-        <label><input type="checkbox" id="healthshrine" checked> Health Shrine</label><br>
-        <label><input type="checkbox" id="boss" checked> Boss</label><br>
-        <label><input type="checkbox" id="ore" checked> Ore</label><br>
+        <label><input type="checkbox" id="loot"> Loot</label><br>
+        <label><input type="checkbox" id="playerspawn"> Spieler Spawn</label><br>
+        <label><input type="checkbox" id="healthshrine"> Health Shrine</label><br>
+        <label><input type="checkbox" id="boss"> Boss</label><br>
+        <label><input type="checkbox" id="ore"> Ore</label><br>
     </div>
-
-    <!-- Karte -->
+    
     <div id="map"></div>
-
+    
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
