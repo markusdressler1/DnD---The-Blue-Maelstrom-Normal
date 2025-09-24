@@ -1,12 +1,23 @@
 // Erstelle die Karte und setze den Startpunkt und Zoom
-var map = L.map('map').setView([0, 0], 2);
+var map = L.map('map').setView([0, 0], 2); // Setze die View auf [0, 0] als Platzhalter
 
-// Lade die OpenStreetMap-Kachel-Layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+// Lade dein eigenes Kartenbild als Hintergrund
+L.imageOverlay('map.png', [
+    [90, -180],  // Diese Koordinaten sind die Ecken deines Bildes. Anpassen an dein Kartenbild!
+    [-90, 180]
+]).addTo(map);
 
-// Markierungen für die Karte (Beispielkoordinaten)
+// Setze die Begrenzungen für den Zoom (optional, um das Bild nicht zu sehr zu zoomen)
+map.setMaxBounds([[-90, -180], [90, 180]]);
+map.setMaxZoom(4); // Setze den maximalen Zoom-Level, je nachdem, wie detailiert das Bild ist.
+map.setMinZoom(1); // Setze den minimalen Zoom-Level.
+
+map.fitBounds([
+    [90, -180],  // Diese Koordinaten passen das Bild so an, dass es richtig auf der Karte liegt
+    [-90, 180]
+]);
+
+// Markierungen (Marker) für die Karte (Beispielkoordinaten)
 var markers = {
     loot: [
         { coords: [10, 20], label: "Loot 1" },
