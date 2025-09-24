@@ -128,3 +128,14 @@ map.on('click', function(e) {
     var type = prompt("Welchen Marker möchtest du setzen? (z.B. lionchest, playerspawn, boss, etc.)");
 
     if (type && markers[type] !== undefined) {
+        var label = type.charAt(0).toUpperCase() + type.slice(1); // Startbuchstabe groß
+        addMarker(latlng, label, type);
+    } else {
+        alert("Ungültiger Marker-Typ!");
+    }
+});
+
+// Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
+document.querySelectorAll('.legend input').forEach(function(checkbox) {
+    checkbox.addEventListener('change', updateMarkers);
+});
