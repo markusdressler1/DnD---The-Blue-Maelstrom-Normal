@@ -1,35 +1,23 @@
-/* Grundlegende Formatierungen */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Container für die Karte */
 #map {
-    width: 100%;
+    width: 75%;
     height: 600px;
+    border: 2px solid #ccc;
 }
 
-/* Styling der Checkboxen */
-.checkboxes {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.7);
+.legend {
+    width: 20%;
     padding: 10px;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
 }
 
-label {
-    display: block;
-    margin: 5px 0;
-    font-size: 16px;
+h3 {
+    margin-top: 0;
 }
