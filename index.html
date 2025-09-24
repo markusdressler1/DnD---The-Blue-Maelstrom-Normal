@@ -8,17 +8,33 @@
 </head>
 <body>
     <h1>Interaktive Map - Dark and Darker</h1>
-    
-    <div class="checkboxes">
-        <label><input type="checkbox" id="loot"> Loot</label><br>
-        <label><input type="checkbox" id="playerspawn"> Spieler Spawn</label><br>
+
+    <div class="legend">
+        <h3>Loot</h3>
+        <label><input type="checkbox" id="lionchest"> Lion Chest</label><br>
+        <label><input type="checkbox" id="uwlionchest"> UW Lion Chest</label><br>
+        <label><input type="checkbox" id="treasurehord"> Treasure Hord</label><br>
+        <label><input type="checkbox" id="mermaidcoffin"> Mermaid Coffin</label><br>
+        <label><input type="checkbox" id="mermaidcorbse"> Mermaid Corbse</label><br>
+
+        <h3>Gameplay</h3>
+        <label><input type="checkbox" id="playerspawn"> Player Spawn</label><br>
         <label><input type="checkbox" id="healthshrine"> Health Shrine</label><br>
+        <label><input type="checkbox" id="reviveshrine"> Revive Shrine</label><br>
+        <label><input type="checkbox" id="keyroom"> Key Room</label><br>
+
+        <h3>NPCs</h3>
         <label><input type="checkbox" id="boss"> Boss</label><br>
+        <label><input type="checkbox" id="croco"> Croco</label><br>
+        <label><input type="checkbox" id="expressman"> Expressman</label><br>
+
+        <h3>Ressources</h3>
         <label><input type="checkbox" id="ore"> Ore</label><br>
+        <label><input type="checkbox" id="gems"> Gems</label><br>
     </div>
-    
+
     <div id="map"></div>
-    
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
