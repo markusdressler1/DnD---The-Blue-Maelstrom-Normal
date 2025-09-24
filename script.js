@@ -1,83 +1,130 @@
-// Erstelle die Karte und setze den Startpunkt und Zoom
-var map = L.map('map').setView([0, 0], 2); // Setze die View auf [0, 0] als Platzhalter
+// Initialisiere die Karte
+var map = L.map('map').setView([0, 0], 2); // Position und Zoom-Level sind hier Platzhalter
 
-// Lade dein eigenes Kartenbild als Hintergrund
+// Lade dein Screenshot als Karte
 L.imageOverlay('map.png', [
-    [90, -180],  // Diese Koordinaten sind die Ecken deines Bildes. Anpassen an dein Kartenbild!
-    [-90, 180]
+    [0, 0], // obere linke Ecke
+    [10, 10] // untere rechte Ecke - diese Koordinaten müssen angepasst werden!
 ]).addTo(map);
 
-// Setze die Begrenzungen für den Zoom (optional, um das Bild nicht zu sehr zu zoomen)
-map.setMaxBounds([[-90, -180], [90, 180]]);
-map.setMaxZoom(4); // Setze den maximalen Zoom-Level, je nachdem, wie detailiert das Bild ist.
-map.setMinZoom(1); // Setze den minimalen Zoom-Level.
-
-map.fitBounds([
-    [90, -180],  // Diese Koordinaten passen das Bild so an, dass es richtig auf der Karte liegt
-    [-90, 180]
-]);
-
-// Markierungen (Marker) für die Karte (Beispielkoordinaten)
+// Marker-Datenstruktur
 var markers = {
-    loot: [
-        { coords: [10, 20], label: "Loot 1" },
-        { coords: [15, 25], label: "Loot 2" }
-    ],
-    playerspawn: [
-        { coords: [0, 0], label: "Spieler Spawn" }
-    ],
-    healthshrine: [
-        { coords: [5, 5], label: "Health Shrine" }
-    ],
-    boss: [
-        { coords: [20, -20], label: "Boss" }
-    ],
-    ore: [
-        { coords: [-10, 30], label: "Ore" }
-    ]
+    lionchest: [],
+    uwlionchest: [],
+    treasurehord: [],
+    mermaidcoffin: [],
+    mermaidcorbse: [],
+    playerspawn: [],
+    healthshrine: [],
+    reviveshrine: [],
+    keyroom: [],
+    boss: [],
+    croco: [],
+    expressman: [],
+    ore: [],
+    gems: []
 };
 
-// Funktion, um Marker hinzuzufügen oder zu entfernen
+// Funktion zum Hinzufügen von Markern
+function addMarker(coords, label, type) {
+    var marker = L.marker(coords).addTo(map).bindPopup(label);
+    markers[type].push(marker); // Marker zur Liste hinzufügen
+}
+
+// Funktion zum Entfernen von Markern
+function removeMarker(marker, type) {
+    map.removeLayer(marker);
+    var index = markers[type].indexOf(marker);
+    if (index > -1) {
+        markers[type].splice(index, 1); // Marker aus der Liste entfernen
+    }
+}
+
+// Funktion zur Aktualisierung der Marker basierend auf den Checkboxen
 function updateMarkers() {
-    // Entferne alle Marker
+    // Entferne alle aktuellen Marker
     map.eachLayer(function(layer) {
         if (layer instanceof L.Marker) {
             map.removeLayer(layer);
         }
     });
 
-    // Füge Marker basierend auf den Checkboxen hinzu
-    if (document.getElementById('loot').checked) {
-        markers.loot.forEach(function(marker) {
-            L.marker(marker.coords).addTo(map).bindPopup(marker.label);
+    // Füge Marker hinzu, wenn die zugehörige Checkbox aktiviert ist
+    if (document.getElementById('lionchest').checked) {
+        markers.lionchest.forEach(function(marker) {
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('uwlionchest').checked) {
+        markers.uwlionchest.forEach(function(marker) {
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('treasurehord').checked) {
+        markers.treasurehord.forEach(function(marker) {
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('mermaidcoffin').checked) {
+        markers.mermaidcoffin.forEach(function(marker) {
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('mermaidcorbse').checked) {
+        markers.mermaidcorbse.forEach(function(marker) {
+            marker.addTo(map);
         });
     }
     if (document.getElementById('playerspawn').checked) {
         markers.playerspawn.forEach(function(marker) {
-            L.marker(marker.coords).addTo(map).bindPopup(marker.label);
+            marker.addTo(map);
         });
     }
     if (document.getElementById('healthshrine').checked) {
         markers.healthshrine.forEach(function(marker) {
-            L.marker(marker.coords).addTo(map).bindPopup(marker.label);
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('reviveshrine').checked) {
+        markers.reviveshrine.forEach(function(marker) {
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('keyroom').checked) {
+        markers.keyroom.forEach(function(marker) {
+            marker.addTo(map);
         });
     }
     if (document.getElementById('boss').checked) {
         markers.boss.forEach(function(marker) {
-            L.marker(marker.coords).addTo(map).bindPopup(marker.label);
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('croco').checked) {
+        markers.croco.forEach(function(marker) {
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('expressman').checked) {
+        markers.expressman.forEach(function(marker) {
+            marker.addTo(map);
         });
     }
     if (document.getElementById('ore').checked) {
         markers.ore.forEach(function(marker) {
-            L.marker(marker.coords).addTo(map).bindPopup(marker.label);
+            marker.addTo(map);
+        });
+    }
+    if (document.getElementById('gems').checked) {
+        markers.gems.forEach(function(marker) {
+            marker.addTo(map);
         });
     }
 }
 
-// Event-Listener für Checkboxen, um Marker zu aktualisieren
-document.querySelectorAll('.checkboxes input').forEach(function(checkbox) {
-    checkbox.addEventListener('change', updateMarkers);
-});
+// Event-Listener für Klicks auf der Karte (zum Hinzufügen von Markern)
+map.on('click', function(e) {
+    var latlng = e.latlng;
+    var type = prompt("Welchen Marker möchtest du setzen? (z.B. lionchest, playerspawn, boss, etc.)");
 
-// Initiale Marker anzeigen
-updateMarkers();
+    if (type && markers[type] !== undefined) {
