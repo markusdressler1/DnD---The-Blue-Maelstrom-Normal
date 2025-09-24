@@ -138,5 +138,4 @@ map.on('click', function(e) {
 // Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
 document.querySelectorAll('.legend input').forEach(function(checkbox) {
     checkbox.addEventListener('change', updateMarkers);
-}); // <-- Hier wird die Funktion geschlossen
-
+}); // <-- Diese Klammer war vorher fehlen
