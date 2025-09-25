@@ -3,23 +3,25 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    height: 100vh; /* Die Höhe des gesamten Viewports */
+    height: 100vh; /* Volle Höhe des Viewports */
+    overflow: hidden; /* Verhindert das Scrollen */
 }
 
 .container {
     position: relative;
-    width: 75vw; /* Karte nimmt 75% der Breite des Viewports ein */
+    width: 75vw; /* Die Karte nimmt 75% der Breite des Viewports ein */
     height: 100vh; /* Die Karte nimmt die volle Höhe des Viewports ein */
     display: flex;
-    justify-content: center; /* Zentriert das Bild */
-    align-items: center; /* Vertikal zentriert das Bild */
-    overflow: hidden; /* Verhindert, dass der Container die Seite überläuft */
+    justify-content: center; /* Karte wird zentriert */
+    align-items: center; /* Karte wird vertikal zentriert */
+    overflow: hidden; /* Verhindert, dass das Bild überläuft */
 }
 
 .map-image {
     width: 100%; /* Bild nimmt die volle Breite des Containers ein */
     height: 100%; /* Bild nimmt die volle Höhe des Containers ein */
-    object-fit: contain; /* Das Bild wird skaliert, um innerhalb des Containers zu bleiben, aber das Seitenverhältnis bleibt erhalten */
+    object-fit: contain; /* Bild wird skaliert, behält aber das Seitenverhältnis */
+    max-height: 100vh; /* Maximale Höhe des Bildes ist die Höhe des Viewports */
 }
 
 .legend {
