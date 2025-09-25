@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="map"></div>  
+    <div class="container">
+        <!-- Statisches Bild als Hintergrund -->
+        <img src="map.png" alt="Map" class="map-image">  
+
+        <!-- Marker -->
+        <div class="marker" style="top: 20%; left: 30%;">Lion Chest</div>
+        <div class="marker" style="top: 50%; left: 60%;">Player Spawn</div>
+        <!-- Weitere Marker hier hinzufügen -->
+    </div>
+
     <div class="legend">
         <h3>Loot</h3>
         <label><input type="checkbox" id="lionchest"> Lion Chest</label><br>
@@ -31,11 +40,7 @@
         <label><input type="checkbox" id="ore"> Ore</label><br>
         <label><input type="checkbox" id="gems"> Gems</label><br>
     </div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
