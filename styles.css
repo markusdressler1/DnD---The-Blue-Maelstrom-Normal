@@ -22,7 +22,7 @@ body {
     height: 100%;
     object-fit: contain;
     max-height: 100vh;
-    border: 2px solid red;  /* Temporär zur Fehlersuche */
+    border: 15px solid red;  /* Temporär zur Fehlersuche */
     z-index: 1;  /* Sicherstellen, dass das Bild über anderen Elementen liegt */
 }
 
@@ -36,4 +36,5 @@ body {
     height: 100vh; /* Die Legende nimmt die volle Höhe des Viewports ein */
     overflow-y: auto;
 }
+
 
