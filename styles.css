@@ -20,9 +20,9 @@ body {
 .map-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     max-height: 100vh;
-    border: 1px solid black !important;  /* Temporär zur Fehlersuche */
+    border: 1px solid transparent !important;  /* Temporär zur Fehlersuche */
     z-index: 1;  /* Sicherstellen, dass das Bild über anderen Elementen liegt */
 }
 
@@ -150,6 +150,7 @@ body {
     height: 15px;
     background-color: purple;
 }
+
 
 
 
