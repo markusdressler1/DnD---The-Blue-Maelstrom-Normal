@@ -37,5 +37,116 @@ body {
     overflow-y: auto;
 }
 
+/* Allgemeine Marker-Stile */
+.marker {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%; /* Für runde Marker */
+}
 
+/* Lion Chest: goldener Punkt */
+.marker-lionchest {
+    width: 15px;
+    height: 15px;
+    background-color: gold;
+}
 
+/* UW Lion Chest: hellblauer Punkt */
+.marker-uwlionchest {
+    width: 15px;
+    height: 15px;
+    background-color: lightblue;
+}
+
+/* Treasure Horde: goldenes Dreieck */
+.marker-treasurehord {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid gold;
+}
+
+/* Mermaid Coffin: schwarzes Meerjungfrauen-Symbol (z.B. als Bild) */
+.marker-mermaidcoffin {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid black;
+}
+
+/* Mermaid Corbse: schwarzes Meerjungfrauen-Symbol (z.B. als Bild) */
+.marker-mermaidcorbse {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid lightblue;
+}
+
+/* Player Spawn: größerer dunkelblauer Punkt */
+.marker-playerspawn {
+    width: 25px;
+    height: 25px;
+    background-color: darkblue;
+}
+
+/* Health Shrine: hellgrüner Punkt */
+.marker-healthshrine {
+    width: 15px;
+    height: 15px;
+    background-color: lightgreen;
+}
+
+/* Revive Shrine: weißer Punkt */
+.marker-reviveshrine {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+}
+
+/* Key Room: schwarzer Schlüssel (Bild) */
+.marker-keyroom {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid gray;
+}
+
+/* Boss: großer roter Punkt */
+.marker-boss {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+/* Croco: kleiner roter Punkt */
+.marker-croco {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+
+/* Expressman: brauner Punkt */
+.marker-expressman {
+    width: 15px;
+    height: 15px;
+    background-color: brown;
+}
+
+/* Ore: grauer Punkt */
+.marker-ore {
+    width: 15px;
+    height: 15px;
+    background-color: gray;
+}
+
+/* Gems: lila Punkt */
+.marker-gems {
+    width: 15px;
+    height: 15px;
+    background-color: purple;
+}
