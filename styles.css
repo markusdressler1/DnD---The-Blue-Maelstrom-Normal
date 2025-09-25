@@ -18,10 +18,14 @@ body {
 }
 
 .map-image {
-    width: 100%; /* Bild nimmt die volle Breite des Containers ein */
-    height: 100%; /* Bild nimmt die volle Höhe des Containers ein */
-    object-fit: contain; /* Bild wird skaliert, behält aber das Seitenverhältnis */
-    max-height: 100vh; /* Maximale Höhe des Bildes ist die Höhe des Viewports */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 100vh;
+    border: 2px solid red;  /* Temporär zur Fehlersuche */
+    z-index: 1;  /* Sicherstellen, dass das Bild über anderen Elementen liegt */
+}
+
 }
 
 .legend {
@@ -32,3 +36,4 @@ body {
     height: 100vh; /* Die Legende nimmt die volle Höhe des Viewports ein */
     overflow-y: auto;
 }
+
