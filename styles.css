@@ -9,8 +9,8 @@ body {
 
 .container {
     position: relative;
-    width: 75vw; /* Die Karte nimmt 75% der Breite des Viewports ein */
-    height: 100vh; /* Die Karte nimmt die volle Höhe des Viewports ein */
+    width: 100%; /* Die Karte nimmt 75% der Breite des Viewports ein */
+    height: 100%; /* Die Karte nimmt die volle Höhe des Viewports ein */
     display: flex;
     justify-content: center; /* Karte wird zentriert */
     align-items: center; /* Karte wird vertikal zentriert */
@@ -150,6 +150,7 @@ body {
     height: 15px;
     background-color: purple;
 }
+
 
 
 
