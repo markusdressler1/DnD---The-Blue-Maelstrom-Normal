@@ -2,14 +2,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex; /* Flexbox für den gesamten Body */
-    justify-content: flex-start; /* Elemente werden nach links ausgerichtet */
+    display: flex;
+    justify-content: flex-start;
     height: 100vh; /* Volle Höhe des Viewports */
 }
 
 #map {
-    width: 75%;  /* Karte nimmt 75% der Breite ein */
-    height: 100%; /* Karte nimmt die volle Höhe des Viewports ein */
+    width: 75%; /* Die Karte nimmt 75% der Breite des Viewports ein */
+    height: 100%; /* Die Karte nimmt die volle Höhe des Viewports ein */
     border: 2px solid #ccc; /* Optionaler Rahmen um die Karte */
 }
 
