@@ -22,6 +22,7 @@ body {
     height: 100%;
     object-fit: cover;
     max-height: 100vh;
+    border: 1px solid black !important;  /* Temporär zur Fehlersuche */
     z-index: 1;  /* Sicherstellen, dass das Bild über anderen Elementen liegt */
 }
 
@@ -149,5 +150,6 @@ body {
     height: 15px;
     background-color: purple;
 }
+
 
 
