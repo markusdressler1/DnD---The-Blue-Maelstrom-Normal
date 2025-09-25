@@ -13,7 +13,7 @@ body {
 }
 
 .map-image {
-    width: 80%; /* Bild nimmt die volle Breite des Containers ein */
+    width: 10%; /* Bild nimmt die volle Breite des Containers ein */
     height: auto; /* Bild wird mit korrektem Seitenverhältnis skaliert */
 }
 
@@ -36,4 +36,5 @@ body {
     height: 100%;
     overflow-y: auto;
 }
+
 
