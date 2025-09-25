@@ -25,17 +25,16 @@ function addMarker(coords, label, type) {
     marker.innerHTML = label;
     document.querySelector('.container').appendChild(marker);
     markers[type].push(marker); // Marker zur Liste hinzufügen
+    console.log(`Marker gesetzt: ${label} bei (${coords.top}%, ${coords.left}%)`);
 }
 
 // Funktion zur Aktualisierung der Marker basierend auf den Checkboxen
 function updateMarkers() {
-    // Entferne alle Marker, die auf der Seite angezeigt wurden
     const allMarkers = document.querySelectorAll('.marker');
     allMarkers.forEach(marker => {
         marker.style.display = 'none'; // Versteckt alle Marker
     });
 
-    // Füge Marker hinzu, wenn die zugehörige Checkbox aktiviert ist
     if (document.getElementById('lionchest').checked) {
         markers.lionchest.forEach(function(marker) {
             marker.style.display = 'block'; // Zeigt den Marker an
@@ -51,32 +50,18 @@ function updateMarkers() {
             marker.style.display = 'block'; // Zeigt den Marker an
         });
     }
-    if (document.getElementById('mermaidcoffin').checked) {
-        markers.mermaidcoffin.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('mermaidcorbse').checked) {
-        markers.mermaidcorbse.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('playerspawn').checked) {
-        markers.playerspawn.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
     // Weitere Marker hier einfügen...
 }
 
 // Event-Listener für Klicks auf der Karte (zum Hinzufügen von Markern)
 document.querySelector('.map-image').addEventListener('click', function(e) {
+    console.log("Bild wurde angeklickt!"); // Einfacher Debugging-Log
     var latlng = {
         top: (e.offsetY / this.offsetHeight) * 100,  // Berechnet die % Koordinaten
         left: (e.offsetX / this.offsetWidth) * 100  // Berechnet die % Koordinaten
     };
-    
-    // Eingabeaufforderung, um den Typ des Markers zu wählen
+    console.log(`Klickposition: Top: ${latlng.top}% Left: ${latlng.left}%`);
+
     var type = prompt("Welchen Marker möchtest du setzen? (z.B. lionchest, playerspawn, boss, etc.)");
 
     if (type && markers[type] !== undefined) {
