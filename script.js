@@ -31,7 +31,7 @@ function addMarker(coords, label, type) {
 // Funktion zur Aktualisierung der Marker basierend auf den Checkboxen
 function updateMarkers() {
     const allMarkers = document.querySelectorAll('.marker');
-    allMarkers.forEach(marker => {
+    allMarkers.forEach(function(marker) {
         marker.style.display = 'none'; // Versteckt alle Marker
     });
 
@@ -73,4 +73,11 @@ document.querySelector('.map-image').addEventListener('click', function(e) {
         var label = type.charAt(0).toUpperCase() + type.slice(1); // Startbuchstabe groß
         addMarker(latlng, label, type); // Marker hinzufügen
     } else {
-        alert("Ungültiger Marker-Typ!
+        alert("Ungültiger Marker-Typ!"); // Fehlermeldung bei ungültigem Typ
+    }
+});
+
+// Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
+document.querySelectorAll('.legend input').forEach(function(checkbox) {
+    checkbox.addEventListener('change', updateMarkers);
+});
