@@ -3,27 +3,22 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;  /* Elemente nebeneinander anordnen */
-    justify-content: flex-start; /* Linksbündig ausrichten */
-    height: 100vh; /* Höhe des Viewports */
+    flex-direction: column;  /* Vertikale Anordnung (Karte oben, Legende unten) */
+    justify-content: flex-start; /* Elemente werden oben ausgerichtet */
+    height: 100vh;  /* Volle Höhe des Viewports */
 }
 
 #map {
-    width: 1000px; /* Feste Breite für die Karte */
-    height: 1000px; /* Feste Höhe für die Karte */
+    width: 100%; /* Karte nimmt die volle Breite des Viewports ein */
+    height: 80vh; /* Karte nimmt 80% der Höhe ein */
     border: 2px solid #ccc;
-    
 }
 
 .legend {
-    width: 25%;  /* Legende nimmt 25% der Breite ein */
+    width: 100%; /* Legende nimmt die volle Breite des Viewports ein */
+    height: 20vh; /* Legende nimmt die restlichen 20% der Höhe ein */
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    height: 100vh; /* Höhe der Legende */
-    overflow-y: auto;  /* Wenn die Legende zu lang wird, kann sie scrollen */
+    overflow-y: auto;  /* Legende wird scrollbar, falls der Inhalt zu lang wird */
 }
-
-
-
-
