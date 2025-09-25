@@ -9,8 +9,8 @@ body {
 }
 
 #map {
-    width: 100px; /* Feste Breite für die Karte */
-    height: 100px; /* Feste Höhe für die Karte */
+    width: 1000px; /* Feste Breite für die Karte */
+    height: 1000px; /* Feste Höhe für die Karte */
     border: 2px solid #ccc;
     max-width: 100%;  /* Damit die Karte nicht zu groß wird, falls der Bildschirm kleiner ist */
 }
@@ -23,5 +23,6 @@ body {
     height: 100vh; /* Höhe der Legende */
     overflow-y: auto;  /* Wenn die Legende zu lang wird, kann sie scrollen */
 }
+
 
 
