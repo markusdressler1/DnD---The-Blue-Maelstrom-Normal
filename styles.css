@@ -3,21 +3,36 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-start;
-    height: 100vh; /* Volle Höhe des Viewports */
+    height: 100vh;
 }
 
-#map {
+.container {
+    position: relative;
     width: 75%; /* Die Karte nimmt 75% der Breite des Viewports ein */
-    height: 100%; /* Die Karte nimmt die volle Höhe des Viewports ein */
-    border: 2px solid #ccc; /* Optionaler Rahmen um die Karte */
+    height: 100%;
 }
 
+.map-image {
+    width: 100%; /* Bild nimmt die volle Breite des Containers ein */
+    height: auto; /* Bild wird mit korrektem Seitenverhältnis skaliert */
+}
+
+.marker {
+    position: absolute; /* Positioniert Marker relativ zum Bild */
+    background-color: rgba(255, 0, 0, 0.7); /* Marker-Hintergrund */
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Legende */
 .legend {
-    width: 25%;  /* Legende nimmt 25% der Breite ein */
+    width: 25%; /* Die Legende nimmt 25% der Breite ein */
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    height: 100%; /* Legende nimmt die volle Höhe des Viewports ein */
-    overflow-y: auto;  /* Legende wird scrollbar, falls der Inhalt zu lang wird */
+    height: 100%;
+    overflow-y: auto;
 }
