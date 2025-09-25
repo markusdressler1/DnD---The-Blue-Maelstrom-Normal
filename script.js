@@ -22,7 +22,56 @@ function addMarker(coords, label, type) {
     marker.classList.add('marker', `marker-${type}`);
     marker.style.top = `${coords.top}%`; // Marker in Prozent positionieren
     marker.style.left = `${coords.left}%`; // Marker in Prozent positionieren
-    marker.innerHTML = label;
+    
+    // Füge ein Symbol oder Bild hinzu, falls vorhanden
+    switch (type) {
+        case 'lionchest':
+            marker.classList.add('marker-lionchest');
+            break;
+        case 'uwlionchest':
+            marker.classList.add('marker-uwlionchest');
+            break;
+        case 'treasurehord':
+            marker.classList.add('marker-treasurehord');
+            break;
+        case 'mermaidcoffin':
+            marker.classList.add('marker-mermaidcoffin');
+            break;
+        case 'mermaidcorbse':
+            marker.classList.add('marker-mermaidcorbse');
+            break;
+        case 'playerspawn':
+            marker.classList.add('marker-playerspawn');
+            break;
+        case 'healthshrine':
+            marker.classList.add('marker-healthshrine');
+            break;
+        case 'reviveshrine':
+            marker.classList.add('marker-reviveshrine');
+            break;
+        case 'keyroom':
+            marker.classList.add('marker-keyroom');
+            break;
+        case 'boss':
+            marker.classList.add('marker-boss');
+            break;
+        case 'croco':
+            marker.classList.add('marker-croco');
+            break;
+        case 'expressman':
+            marker.classList.add('marker-expressman');
+            break;
+        case 'ore':
+            marker.classList.add('marker-ore');
+            break;
+        case 'gems':
+            marker.classList.add('marker-gems');
+            break;
+        default:
+            console.log("Unbekannter Marker-Typ");
+            return;
+    }
+
     document.querySelector('.container').appendChild(marker);
     markers[type].push(marker); // Marker zur Liste hinzufügen
     console.log(`Marker gesetzt: ${label} bei (${coords.top}%, ${coords.left}%)`);
@@ -51,7 +100,61 @@ function updateMarkers() {
             marker.style.display = 'block'; // Zeigt den Marker an
         });
     }
-    // Weitere Marker hier einfügen...
+    if (document.getElementById('mermaidcoffin').checked) {
+        markers.mermaidcoffin.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('mermaidcorbse').checked) {
+        markers.mermaidcorbse.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('playerspawn').checked) {
+        markers.playerspawn.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('healthshrine').checked) {
+        markers.healthshrine.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('reviveshrine').checked) {
+        markers.reviveshrine.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('keyroom').checked) {
+        markers.keyroom.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('boss').checked) {
+        markers.boss.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('croco').checked) {
+        markers.croco.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('expressman').checked) {
+        markers.expressman.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('ore').checked) {
+        markers.ore.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
+    if (document.getElementById('gems').checked) {
+        markers.gems.forEach(function(marker) {
+            marker.style.display = 'block'; // Zeigt den Marker an
+        });
+    }
 }
 
 // Event-Listener für Klicks auf der Karte (zum Hinzufügen von Markern)
