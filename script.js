@@ -66,20 +66,28 @@ function updateMarkers() {
             marker.style.display = 'block'; // Zeigt den Marker an
         });
     }
-    if (document.getElementById('healthshrine').checked) {
-        markers.healthshrine.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
+    // Weitere Marker hier einfügen...
+}
+
+// Event-Listener für Klicks auf der Karte (zum Hinzufügen von Markern)
+document.querySelector('.map-image').addEventListener('click', function(e) {
+    var latlng = {
+        top: (e.offsetY / this.offsetHeight) * 100,  // Berechnet die % Koordinaten
+        left: (e.offsetX / this.offsetWidth) * 100  // Berechnet die % Koordinaten
+    };
+    
+    // Eingabeaufforderung, um den Typ des Markers zu wählen
+    var type = prompt("Welchen Marker möchtest du setzen? (z.B. lionchest, playerspawn, boss, etc.)");
+
+    if (type && markers[type] !== undefined) {
+        var label = type.charAt(0).toUpperCase() + type.slice(1); // Startbuchstabe groß
+        addMarker(latlng, label, type); // Marker hinzufügen
+    } else {
+        alert("Ungültiger Marker-Typ!"); // Fehlermeldung bei ungültigem Typ
     }
-    if (document.getElementById('reviveshrine').checked) {
-        markers.reviveshrine.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('keyroom').checked) {
-        markers.keyroom.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('boss').checked) {
-        mar
+});
+
+// Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
+document.querySelectorAll('.legend input').forEach(function(checkbox) {
+    checkbox.addEventListener('change', updateMarkers);
+});
