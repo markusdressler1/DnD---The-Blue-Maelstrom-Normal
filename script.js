@@ -1,11 +1,18 @@
-// Initialisiere die Karte
-var map = L.map('map').setView([0, 0], 2); // Position und Zoom-Level sind hier Platzhalter
+// Initialisiere die Karte ohne Zoom und ohne Panning (statisches Bild)
+var map = L.map('map', {
+    center: [0, 0],  // Setze den Startpunkt der Karte
+    zoom: 2,         // Setze das Standard-Zoom-Level
+    zoomControl: false,  // Deaktiviert die Zoom-Steuerung
+    minZoom: 2,      // Maximaler und Minimaler Zoom-Level
+    maxZoom: 2,
+    dragging: false, // Deaktiviert das Panning (Verschieben der Karte)
+}).setView([0, 0], 2); // Setze die Startansicht der Karte
 
-// Lade dein Screenshot als Karte
-L.imageOverlay('map.png', [
-    [0, 0], // obere linke Ecke
-    [10, 10] // untere rechte Ecke - diese Koordinaten müssen angepasst werden!
-]).addTo(map);
+// Lade das Bild als Overlay
+var imageUrl = 'map.png';  // Dein Bild-URL
+var imageBounds = [[0, 0], [10, 10]];  // Setze die Grenzen des Bildes (Koordinaten)
+
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 // Marker-Datenstruktur
 var markers = {
@@ -138,4 +145,4 @@ map.on('click', function(e) {
 // Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
 document.querySelectorAll('.legend input').forEach(function(checkbox) {
     checkbox.addEventListener('change', updateMarkers);
-}); // <-- Diese Klammer war vorher fehlen
+});
