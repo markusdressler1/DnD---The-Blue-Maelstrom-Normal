@@ -35,6 +35,7 @@ function updateMarkers() {
         marker.style.display = 'none'; // Versteckt alle Marker
     });
 
+    // Überprüfen, welche Checkboxen aktiviert sind und Marker anzeigen
     if (document.getElementById('lionchest').checked) {
         markers.lionchest.forEach(function(marker) {
             marker.style.display = 'block'; // Zeigt den Marker an
@@ -56,23 +57,20 @@ function updateMarkers() {
 // Event-Listener für Klicks auf der Karte (zum Hinzufügen von Markern)
 document.querySelector('.map-image').addEventListener('click', function(e) {
     console.log("Bild wurde angeklickt!"); // Einfacher Debugging-Log
+
+    // Berechnen der Klickposition relativ zum Bild
     var latlng = {
         top: (e.offsetY / this.offsetHeight) * 100,  // Berechnet die % Koordinaten
         left: (e.offsetX / this.offsetWidth) * 100  // Berechnet die % Koordinaten
     };
     console.log(`Klickposition: Top: ${latlng.top}% Left: ${latlng.left}%`);
 
+    // Type (Markertyp) eingeben
     var type = prompt("Welchen Marker möchtest du setzen? (z.B. lionchest, playerspawn, boss, etc.)");
 
+    // Wenn der Marker-Typ gültig ist, füge den Marker hinzu
     if (type && markers[type] !== undefined) {
         var label = type.charAt(0).toUpperCase() + type.slice(1); // Startbuchstabe groß
         addMarker(latlng, label, type); // Marker hinzufügen
     } else {
-        alert("Ungültiger Marker-Typ!"); // Fehlermeldung bei ungültigem Typ
-    }
-});
-
-// Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
-document.querySelectorAll('.legend input').forEach(function(checkbox) {
-    checkbox.addEventListener('change', updateMarkers);
-});
+        alert("Ungültiger Marker-Typ!
