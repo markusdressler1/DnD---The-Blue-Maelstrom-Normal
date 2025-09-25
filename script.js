@@ -72,115 +72,80 @@ function addMarker(coords, label, type) {
             return;
     }
 
+    // Marker zur Container hinzufügen
     document.querySelector('.container').appendChild(marker);
     markers[type].push(marker); // Marker zur Liste hinzufügen
+
+    // Speichern des Markers im Local Storage
+    let storedMarkers = JSON.parse(localStorage.getItem('markers')) || [];
+    storedMarkers.push({ coords, label, type });
+    localStorage.setItem('markers', JSON.stringify(storedMarkers));
+
     console.log(`Marker gesetzt: ${label} bei (${coords.top}%, ${coords.left}%)`);
 }
 
-// Funktion zur Aktualisierung der Marker basierend auf den Checkboxen
-function updateMarkers() {
-    const allMarkers = document.querySelectorAll('.marker');
-    allMarkers.forEach(function(marker) {
-        marker.style.display = 'none'; // Versteckt alle Marker
+// Funktion zum Laden der Marker aus dem Local Storage
+function loadMarkersFromLocalStorage() {
+    const storedMarkers = JSON.parse(localStorage.getItem('markers')) || [];
+
+    storedMarkers.forEach(function(markerData) {
+        addMarker(markerData.coords, markerData.label, markerData.type);
+    });
+}
+
+// Funktion zur Speicherung der Checkbox-Zustände
+function saveCheckboxStates() {
+    const checkboxStates = {};
+    document.querySelectorAll('.legend input').forEach(function(checkbox) {
+        checkboxStates[checkbox.id] = checkbox.checked;
+    });
+    localStorage.setItem('checkboxStates', JSON.stringify(checkboxStates));
+}
+
+// Funktion zum Laden der Checkbox-Zustände aus dem Local Storage
+function loadCheckboxStates() {
+    const checkboxStates = JSON.parse(localStorage.getItem('checkboxStates')) || {};
+
+    document.querySelectorAll('.legend input').forEach(function(checkbox) {
+        if (checkboxStates[checkbox.id] !== undefined) {
+            checkbox.checked = checkboxStates[checkbox.id];
+        }
     });
 
-    // Überprüfen, welche Checkboxen aktiviert sind und Marker anzeigen
-    if (document.getElementById('lionchest').checked) {
-        markers.lionchest.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('uwlionchest').checked) {
-        markers.uwlionchest.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('treasurehord').checked) {
-        markers.treasurehord.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('mermaidcoffin').checked) {
-        markers.mermaidcoffin.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('mermaidcorbse').checked) {
-        markers.mermaidcorbse.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('playerspawn').checked) {
-        markers.playerspawn.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('healthshrine').checked) {
-        markers.healthshrine.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('reviveshrine').checked) {
-        markers.reviveshrine.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('keyroom').checked) {
-        markers.keyroom.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('boss').checked) {
-        markers.boss.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('croco').checked) {
-        markers.croco.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('expressman').checked) {
-        markers.expressman.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('ore').checked) {
-        markers.ore.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
-    if (document.getElementById('gems').checked) {
-        markers.gems.forEach(function(marker) {
-            marker.style.display = 'block'; // Zeigt den Marker an
-        });
-    }
+    // Marker basierend auf den geladenen Checkbox-Zuständen anzeigen
+    updateMarkers();
 }
 
 // Event-Listener für Klicks auf der Karte (zum Hinzufügen von Markern)
 document.querySelector('.map-image').addEventListener('click', function(e) {
-    console.log("Bild wurde angeklickt!"); // Einfacher Debugging-Log
+    console.log("Bild wurde angeklickt!");
 
-    // Berechnen der Klickposition relativ zum Bild
     var latlng = {
-        top: (e.offsetY / this.offsetHeight) * 100,  // Berechnet die % Koordinaten
-        left: (e.offsetX / this.offsetWidth) * 100  // Berechnet die % Koordinaten
+        top: (e.offsetY / this.offsetHeight) * 100,
+        left: (e.offsetX / this.offsetWidth) * 100
     };
     console.log(`Klickposition: Top: ${latlng.top}% Left: ${latlng.left}%`);
 
-    // Type (Markertyp) eingeben
     var type = prompt("Welchen Marker möchtest du setzen? (z.B. lionchest, playerspawn, boss, etc.)");
 
-    // Wenn der Marker-Typ gültig ist, füge den Marker hinzu
     if (type && markers[type] !== undefined) {
-        var label = type.charAt(0).toUpperCase() + type.slice(1); // Startbuchstabe groß
-        addMarker(latlng, label, type); // Marker hinzufügen
+        var label = type.charAt(0).toUpperCase() + type.slice(1);
+        addMarker(latlng, label, type);
     } else {
-        alert("Ungültiger Marker-Typ!"); // Fehlermeldung bei ungültigem Typ
+        alert("Ungültiger Marker-Typ!");
     }
 });
 
-// Event-Listener für die Checkboxen, um Marker anzuzeigen/zu entfernen
+// Event-Listener für Checkboxen, um den Zustand zu speichern
 document.querySelectorAll('.legend input').forEach(function(checkbox) {
-    checkbox.addEventListener('change', updateMarkers);
+    checkbox.addEventListener('change', function() {
+        saveCheckboxStates();
+        updateMarkers();
+    });
+});
+
+// Beim Laden der Seite Marker und Checkbox-Zustände laden
+window.addEventListener('load', function() {
+    loadMarkersFromLocalStorage();
+    loadCheckboxStates();
 });
