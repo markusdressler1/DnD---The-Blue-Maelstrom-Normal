@@ -20,9 +20,9 @@ body {
 .map-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     max-height: 100vh;
-    border: 15px solid red;  /* Temporär zur Fehlersuche */
+    border: 15px solid red !important;  /* Temporär zur Fehlersuche */
     z-index: 1;  /* Sicherstellen, dass das Bild über anderen Elementen liegt */
 }
 
@@ -36,5 +36,6 @@ body {
     height: 100vh; /* Die Legende nimmt die volle Höhe des Viewports ein */
     overflow-y: auto;
 }
+
 
 
