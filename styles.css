@@ -2,23 +2,28 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;  /* Vertikale Anordnung (Karte oben, Legende unten) */
-    justify-content: flex-start; /* Elemente werden oben ausgerichtet */
-    height: 100vh;  /* Volle Höhe des Viewports */
+    display: flex; /* Flexbox für den gesamten Body */
+    flex-direction: column; /* Die Elemente im Body sind vertikal */
+    height: 100vh; /* Volle Höhe des Viewports */
+}
+
+.container {
+    display: flex; /* Flexbox, um die Karte und Legende nebeneinander anzuzeigen */
+    width: 100%; /* Container nimmt die gesamte Breite ein */
+    height: 100%; /* Container nimmt die gesamte Höhe des Viewports ein */
 }
 
 #map {
-    width: 100%; /* Karte nimmt die volle Breite des Viewports ein */
-    height: 80vh; /* Karte nimmt 80% der Höhe ein */
-    border: 2px solid #ccc;
+    width: 75%;  /* Karte nimmt 75% der Breite ein */
+    height: 100%; /* Karte nimmt die volle Höhe des Containers ein */
+    border: 2px solid #ccc; /* Optionaler Rahmen um die Karte */
 }
 
 .legend {
-    width: 100%; /* Legende nimmt die volle Breite des Viewports ein */
-    height: 20vh; /* Legende nimmt die restlichen 20% der Höhe ein */
+    width: 25%;  /* Legende nimmt 25% der Breite ein */
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
+    height: 100%; /* Legende nimmt die volle Höhe des Containers ein */
     overflow-y: auto;  /* Legende wird scrollbar, falls der Inhalt zu lang wird */
 }
