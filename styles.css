@@ -3,40 +3,30 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    height: 100vh;
+    height: 100vh; /* Die Höhe des gesamten Viewports */
 }
 
 .container {
     position: relative;
-    width: 75%; /* Die Karte nimmt 75% der Breite des Viewports ein */
-    height: 50%;
+    width: 75vw; /* Karte nimmt 75% der Breite des Viewports ein */
+    height: 100vh; /* Die Karte nimmt die volle Höhe des Viewports ein */
+    display: flex;
+    justify-content: center; /* Zentriert das Bild */
+    align-items: center; /* Vertikal zentriert das Bild */
+    overflow: hidden; /* Verhindert, dass der Container die Seite überläuft */
 }
 
 .map-image {
     width: 100%; /* Bild nimmt die volle Breite des Containers ein */
-    height: auto; /* Bild wird mit korrektem Seitenverhältnis skaliert */
+    height: 100%; /* Bild nimmt die volle Höhe des Containers ein */
+    object-fit: contain; /* Das Bild wird skaliert, um innerhalb des Containers zu bleiben, aber das Seitenverhältnis bleibt erhalten */
 }
 
-.marker {
-    position: absolute; /* Positioniert Marker relativ zum Bild */
-    background-color: rgba(255, 0, 0, 0.7); /* Marker-Hintergrund */
-    color: white;
-    padding: 5px;
-    border-radius: 50%;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-/* Legende */
 .legend {
-    width: 25%; /* Die Legende nimmt 25% der Breite ein */
+    width: 25vw; /* Die Legende nimmt 25% der Breite des Viewports ein */
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    height: 100%;
+    height: 100vh; /* Die Legende nimmt die volle Höhe des Viewports ein */
     overflow-y: auto;
 }
-
-
-
-
